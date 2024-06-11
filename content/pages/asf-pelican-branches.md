@@ -35,13 +35,33 @@ GitHub has further information on <a href="https://docs.github.com/en/github/col
 These settings in your project's .asf.yaml file do the automatic staging of preview branches.
 
 ```yaml
-pelican:
-  autobuild: preview/*
-  target: asf-site
-  theme: theme/apache
-  whoami: main
-
 staging:
   profile: ~
   autostage: preview/*
 ```
+
+## GitHub Workflow
+This GitHub workflow in the default branch of your repository will build the preview branch
+
+```yaml
+name: Build a Pelican Website
+on:
+  push:
+    # This prevents the workflow from running automatically on a new branch
+    # When creating a new site branch, please ensure that the push and checkout branches agree
+    # and that the action/pelican destination value is updated accordingly
+    branches:
+      - preview/*
+      - master
+  workflow_dispatch:
+jobs:
+  build-pelican:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: apache/infrastructure-actions/pelican@main
+        with:
+          # This must be appropriate for the branch being built
+          destination: 'DESTINATION_BRANCH'
+          gfm: 'true'
+
