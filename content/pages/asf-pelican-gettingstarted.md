@@ -21,12 +21,17 @@ staging:
   7. Use the Infrastructure provided [GitHub Actions workflow](https://github.com/apache/infrastructure-actions/raw/main/pelican/migration/build-pelican.yml) and ensure that the workflow shows the correct branches.
   8. Commit and push your new website repository. This should trigger the automatic build to staging (`REPONAME.staged.apache.org`).
   9. Review the site to confirm that the template materials display and function correctly.
-  10. Add your own content, updating, replacing, and removing template content elements as appropriate. With each commit / push of content, visit the staging site to confirm that the site displays as you expect it to.
+
+### Using the Template
+If you've opted to use the template to create your pelican site, you can follow these instructions:
+  1. Download the [template](https://github.com/apache/template-site/archive/refs/heads/main.zip)
+  2. Unzip the contents into your directory.
+  3. Add your own content, updating, replacing, and removing template content elements as appropriate. With each commit / push of content, visit the staging site to confirm that the site displays as you expect it to.
      - `.md` files support GitHub Flavored Markdown ([**gfm**](gfm.html)) and html.
      - `.ezmd` files are for templates using `ASF_DATA`. .ezmd is a markdown extension of <a href="https://github.com/gstein/ezt/blob/wiki/Syntax.md" target="_blank">EZT</a>. It lets you embed ezt inside markdown with modifications to simplify the process of fetching generated/external data.
-  11. <a href="https://infra.apache.org/asf-pelican-theme.html" target="_blank">Adjust the theme</a> by editing `base.html` and making any other style changes that will help the site present your project and product well. Don't forget to provide your product's logo in the `content/images` folder.
-  12. When you are ready to publish the site, create a pull request to merge the content in staging into the trunk of the repo. That will trigger a build of the live site.
-  14. Visit `YourProject.apache.org` after every update to make sure it displays and functions correctly.
+  4. <a href="https://infra.apache.org/asf-pelican-theme.html" target="_blank">Adjust the theme</a> by editing `base.html` and making any other style changes that will help the site present your project and product well. Don't forget to provide your product's logo in the `content/images` folder.
+  5. When you are ready to publish the site, create a pull request to merge the content in staging into the trunk of the repo. That will trigger a build of the live site.
+  6. Visit `YourProject.apache.org` after every update to make sure it displays and functions correctly.
 
 **Note**: we strongly suggest that you do your site development in a [branch](apache-pelican-branches.html) rather than the trunk of the repository, and then merge the branch into the trunk when you are sure that everything is working as you would like it. Each commit to the trunk triggers an automatic build to update your live site; this is great for trivial changes like correcting typos, but more of a challenge if you are making major changes and it turns out that there is an error in your code that disables your live site. 
 
