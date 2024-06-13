@@ -23,6 +23,7 @@ staging:
   9. Review the site to confirm that the template materials display and function correctly.
 
 ### Using the Template
+
 If you've opted to use the template to create your pelican site, you can follow these instructions:
   1. Download the [template](https://github.com/apache/template-site/archive/refs/heads/main.zip)
   2. Unzip the contents into your directory.
