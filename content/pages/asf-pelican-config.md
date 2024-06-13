@@ -9,22 +9,21 @@ This page was relevant to ASF-Pelican, but is **not relevant** to the replacemen
 
 <hr/>
 
-Review <a href="https://github.com/apache/template-site" target="_blank">github.com/apache/template-site</a> to inspect a full `pelicanconf.yaml` file.
+Review <a href="https://github.com/apache/template-site" target="_blank">github.com/apache/template-site</a> to inspect a full `pelicanconf.py` file.
 
 These are the sections to configure in `pelicanconf.yaml` for your website: 
 
 ## Required
 
 ```
-site:
-  name: Apache Template
-  description: Provides a template for projects wishing to use the Pelican ASF static content system
-  domain: template.apache.org
-  logo: images/logo.png
-  repository: https://github.com/apache/template-site/blob/main/content/
-  trademarks: Apache, the Apache feather logo, and "Project" are trademarks or registered trademarks
+NAME: Apache Template
+DESCRIPTION: Provides a template for projects wishing to use the Pelican ASF static content system
+DOMAIN: template.apache.org
+LOGO: images/logo.png
+REPOSITORY: https://github.com/apache/template-site/blob/main/content/
+TRADEMARKS: Apache, the Apache feather logo, and "Project" are trademarks or registered trademarks
 
-theme: theme/apache
+THEME: theme/apache
 ```
 
 ## Options
@@ -35,11 +34,8 @@ If you are using the standard plugins included in ASF Pelican, you can leave thi
 If you include it, your build will automatically include the `gfm` plugin.
 
 ```
-plugins:
-  paths:
-    - theme/plugins
-  use:
-    - gfm
+PLUGINS: ['gfm']
+PLUGIN_PATHS: ['theme/plugins']
 ```
 
 ### Special setup
